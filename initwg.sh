@@ -73,6 +73,10 @@ PrivateKey = `cat /etc/wireguard/mkwg/wg$1server.key`
 EOT
 fi
 
+# wireguardのインターフェイスを実行
+systemctl enable wg-quick@wg$1
+systemctl start wg-quick@wg$1
+
 # 全部正常に終了したら0を返す
 echo "done!"
 exit 0

@@ -66,6 +66,9 @@ Address = 10.0.25.`echo $(( $NUM + 2 ))`/32
 PrivateKey = `cat /etc/wireguard/mkwg/client.key`
 EOT
 
+# systemdでwireguardを再起動
+systemctl restart wg-quick@wg$1
+
 echo "done!!"
 cat /etc/wireguard/mkwg/mkwg_client$(( NUM + 1 )).conf
 exit 0
